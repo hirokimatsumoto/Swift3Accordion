@@ -85,7 +85,7 @@ class AccordionViewController: UIViewController, UITableViewDelegate, UITableVie
             let detail = section.details[indexPath.row - 1]
             print("tapped: \(title) - \(detail)")
             
-            // transion
+            // transition
             Singleton.shared.title = title
             Singleton.shared.detail = detail
             
