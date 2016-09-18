@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mOy-iH-1ko">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Detail View Controller-->
+        <scene sceneID="lEc-OH-wfG">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mOy-iH-1ko" customClass="DetailViewController" customModule="Accordion" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HQw-OF-uzG"/>
+                        <viewControllerLayoutGuide type="bottom" id="aAK-JS-lzp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Itr-MA-RIe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7GU-j6-Uli">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="detail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxn-Iv-Mk9">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="7GU-j6-Uli" firstAttribute="centerX" secondItem="Itr-MA-RIe" secondAttribute="centerX" id="Ok8-KW-mxn"/>
+                            <constraint firstItem="mxn-Iv-Mk9" firstAttribute="leading" secondItem="Itr-MA-RIe" secondAttribute="leading" id="YFt-4k-oUx"/>
+                            <constraint firstItem="7GU-j6-Uli" firstAttribute="centerY" secondItem="Itr-MA-RIe" secondAttribute="centerY" id="i0L-57-kkP"/>
+                            <constraint firstItem="mxn-Iv-Mk9" firstAttribute="top" secondItem="7GU-j6-Uli" secondAttribute="bottom" constant="50" id="iov-pD-TJ3"/>
+                            <constraint firstItem="7GU-j6-Uli" firstAttribute="leading" secondItem="Itr-MA-RIe" secondAttribute="leading" id="mnq-TI-QHT"/>
+                            <constraint firstAttribute="trailing" secondItem="mxn-Iv-Mk9" secondAttribute="trailing" id="pad-e8-dDP"/>
+                            <constraint firstAttribute="trailing" secondItem="7GU-j6-Uli" secondAttribute="trailing" id="uPC-6k-efG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailLabel" destination="mxn-Iv-Mk9" id="ylu-Mb-un8"/>
+                        <outlet property="titleLabel" destination="7GU-j6-Uli" id="Vdi-gE-yvf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Or-fM-xto" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="108" y="77.811094452773617"/>
+        </scene>
+    </scenes>
+</document>
