@@ -7,30 +7,41 @@
 //
 
 import UIKit
-// ADD:
-class DetailViewController: UIViewController {
+
+class DetailViewController: UIViewController{
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     
+    var titleLabelText = ""
+    var detailLabelText = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Header
-        guard let title = Singleton.shared.title,
-              let detail = Singleton.shared.detail else { return }
-        self.title = title + "-" + detail
-        
-        // label
-        titleLabel.text = Singleton.shared.title
-        detailLabel.text = Singleton.shared.detail
+        titleLabel.text = titleLabelText
+        detailLabel.text = detailLabelText
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        Singleton.shared.clear()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+}
+
+extension DetailViewController{
+    
+    /// Data with transition.
+    ///
+    /// - Parameters:
+    ///   - title: hoge.
+    ///   - detail: fuga.
+    func send(title: String, detail: String) {
+        // Header
+        self.title = title + "-" + detail
+        // title/detail
+        titleLabelText = title
+        detailLabelText = detail
     }
 }

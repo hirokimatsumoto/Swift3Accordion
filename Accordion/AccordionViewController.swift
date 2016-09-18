@@ -85,14 +85,15 @@ class AccordionViewController: UIViewController, UITableViewDelegate, UITableVie
             let detail = section.details[indexPath.row - 1]
             print("tapped: \(title) - \(detail)")
             
-            // transion
-            Singleton.shared.title = title
-            Singleton.shared.detail = detail
-            
+            // transition
             let storyboard = UIStoryboard(name: "\(DetailViewController.self)", bundle: nil)
-            let detailVC =
-                storyboard.instantiateViewController(withIdentifier: "\(DetailViewController.self)")
-            
+            guard let detailVC =
+                storyboard.instantiateViewController(
+                    withIdentifier:
+                    "\(DetailViewController.self)") as? DetailViewController else {
+                return
+            }
+            detailVC.send(title: title, detail: detail)
             show(detailVC, sender: nil)
         }
         
