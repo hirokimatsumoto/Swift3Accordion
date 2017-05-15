@@ -10,6 +10,9 @@ import UIKit
 
 class AccordionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    //受信者選択欄の各セルに入れるデータ
+    let examineeData = ["ご本人","小山田　花","小山田　翔","小山田　圭子","別のご家族を追加"]
+    
     var tableView :UITableView?
     
     /// section array.
@@ -18,16 +21,15 @@ class AccordionViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // ADD:
-        title = "Accordion"
-        
         // section value
         self.getSectionsValue()
         
         tableView = UITableView(frame: view.frame)
+        tableView?.allowsMultipleSelection = false
         tableView?.delegate = self
         tableView?.dataSource = self
         self.view.addSubview(tableView!)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,12 +65,21 @@ class AccordionViewController: UIViewController, UITableViewDelegate, UITableVie
             section.title :                            // title
             "  \(section.details[indexPath.row - 1])"  // detail
         
+        if 0 == indexPath.row {
+            //ヘッダーに未選択のラジオボタンを入れる
+            cell?.imageView?.image = UIImage(named: "btn_radio_off")
+        }
+
+        // セルが選択された時の背景色を消す
+        cell?.selectionStyle = UITableViewCellSelectionStyle.none
+        
         return cell!
     }
     
     /// MARK: UITableViewDelegate
+    // セルが選択された時に呼び出される
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        //ヘッダーセルが選択された場合の処理
         if 0 == indexPath.row {
             // switching open or close
             sections[indexPath.section].extended = !sections[indexPath.section].extended
@@ -79,25 +90,35 @@ class AccordionViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.toExpand(tableView, indexPath: indexPath)
             }
             
-        }else{ // ADD:
-            let section = sections[indexPath.section]
-            let title = section.title
-            let detail = section.details[indexPath.row - 1]
-            print("tapped: \(title) - \(detail)")
+            let cell = tableView.cellForRow(at:indexPath)
+            // チェックマークを入れる
+            cell?.imageView?.image = UIImage(named: "btn_radio_on")
             
-            // transition
-            Singleton.shared.title = title
-            Singleton.shared.detail = detail
-            
-            let storyboard = UIStoryboard(name: "\(DetailViewController.self)", bundle: nil)
-            let detailVC =
-                storyboard.instantiateViewController(withIdentifier: "\(DetailViewController.self)")
-            
-            show(detailVC, sender: nil)
+        }else{
+            // detailセル選択時の動きをかく
         }
+
+    }
+    
+    // セルの選択が外れた時に呼び出される
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at:indexPath)
         
-        // deselect
-        tableView.deselectRow(at: indexPath, animated: true)
+        // チェックマークを外す
+        cell?.imageView?.image = UIImage(named: "btn_radio_off")
+        //ヘッダーセルの選択が外れた場合の処理
+        if 0 == indexPath.row {
+            // 開いているdetailセルを閉じる
+            sections[indexPath.section].extended = !sections[indexPath.section].extended
+            
+            if !sections[indexPath.section].extended {
+                self.toContract(tableView, indexPath: indexPath)
+            }else{
+                self.toExpand(tableView, indexPath: indexPath)
+            }
+            
+        }else{
+        }
     }
     
     /// close details.
@@ -143,37 +164,25 @@ class AccordionViewController: UIViewController, UITableViewDelegate, UITableVie
     fileprivate func getSectionsValue(){
         
         var details: [String]
-        details = []
-        details.append("details1")
-        sections.append((title: "SECTION1", details: details, extended: false)) // close
-        
-        details = []
-        details.append("details1")
-        details.append("details2")
-        sections.append((title: "SECTION2", details: details, extended: true)) // open
-        
-        details = []
-        details.append("details1")
-        details.append("details2")
-        details.append("details3")
-        sections.append((title: "SECTION3", details: details, extended: true)) // open
-        
-        details = []
-        details.append("details1")
-        details.append("details2")
-        details.append("details3")
-        details.append("details4")
-        sections.append((title: "SECTION4", details: details, extended: false)) // close
-        
-        for i in 5...20 {
-            details = []
-            details.append("details1")
-            details.append("details2")
-            details.append("details3")
-            details.append("details4")
-            details.append("details5")
-            sections.append((title: "SECTION\(i)", details: details, extended: false))
+
+        for i in 0...4 {
+            
+            //"別のご家族を追加"の場合
+            if i == 4 {
+                details = []
+                details.append("お名前")
+                details.append("ふりがな")
+                details.append("生年月日")
+                details.append("性別")
+                sections.append((title: examineeData[i], details: details, extended: false))
+                
+            } else {
+                //"別のご家族を追加"以外の場合
+                details = []
+                sections.append((title: examineeData[i], details: details, extended: false))
+            }
         }
+        
     }
 }
 

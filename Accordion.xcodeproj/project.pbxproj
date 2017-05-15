@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A01FDA01EC96D4B00BBD63D /* btn_radio_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A01FD9E1EC96D4B00BBD63D /* btn_radio_off.png */; };
+		1A01FDA11EC96D4B00BBD63D /* btn_radio_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A01FD9F1EC96D4B00BBD63D /* btn_radio_on.png */; };
 		556EFCFC1BBF93BB00FDF969 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EFCFB1BBF93BB00FDF969 /* AppDelegate.swift */; };
 		556EFCFE1BBF93BB00FDF969 /* AccordionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EFCFD1BBF93BB00FDF969 /* AccordionViewController.swift */; };
 		556EFD011BBF93BB00FDF969 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 556EFCFF1BBF93BB00FDF969 /* Main.storyboard */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A01FD9E1EC96D4B00BBD63D /* btn_radio_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_radio_off.png; sourceTree = "<group>"; };
+		1A01FD9F1EC96D4B00BBD63D /* btn_radio_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_radio_on.png; sourceTree = "<group>"; };
 		556EFCF81BBF93BB00FDF969 /* Accordion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Accordion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		556EFCFB1BBF93BB00FDF969 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		556EFCFD1BBF93BB00FDF969 /* AccordionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordionViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 		556EFCFA1BBF93BB00FDF969 /* Accordion */ = {
 			isa = PBXGroup;
 			children = (
+				1A01FD9E1EC96D4B00BBD63D /* btn_radio_off.png */,
+				1A01FD9F1EC96D4B00BBD63D /* btn_radio_on.png */,
 				556EFCFB1BBF93BB00FDF969 /* AppDelegate.swift */,
 				556EFCFD1BBF93BB00FDF969 /* AccordionViewController.swift */,
 				559C5D151D8EAB070041B754 /* DetailViewController.swift */,
@@ -245,6 +251,8 @@
 			files = (
 				559C5D181D8EAC320041B754 /* DetailViewController.storyboard in Resources */,
 				556EFD091BBF93BB00FDF969 /* LaunchScreen.storyboard in Resources */,
+				1A01FDA01EC96D4B00BBD63D /* btn_radio_off.png in Resources */,
+				1A01FDA11EC96D4B00BBD63D /* btn_radio_on.png in Resources */,
 				556EFD061BBF93BB00FDF969 /* Assets.xcassets in Resources */,
 				556EFD011BBF93BB00FDF969 /* Main.storyboard in Resources */,
 			);
